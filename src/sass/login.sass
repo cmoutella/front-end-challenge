@@ -1,0 +1,81 @@
+#login
+  +reset
+  position: absolute
+  top: 0
+  left: 0
+  display: none
+
+.login
+  +reset
+  background-color: $color-primary
+  height: 100vh
+  width: 100vw
+  padding: 60px
+
+  &-container
+    max-width: 400px
+    margin: 0 auto
+  
+  &-title
+    +reset
+    color: #fff
+    font-family: $cursive
+    text-align: center
+    font-size: 40px
+    margin-bottom: 60px
+
+    &:before
+      content: ''
+      background-color: transparent
+      width: 230px
+      height: 147px
+      display: block
+      margin: 0 auto 60px
+      background-image: url('./images/logo.png')
+
+  &-form
+    background-color: $color-nav
+    border-radius: 13px
+    padding: 15px
+    box-sizing: border-box
+    box-shadow: 5px 5px 15px #00000050
+    text-align: center
+    font-family: $sans
+
+    p
+      color: $color-active-dark
+      font-size: 16px
+      margin-bottom: 30px
+
+    form
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-content: center
+
+    input
+      height: 35px
+      border: 1px solid $border-color
+      border-radius: 3px
+      margin-bottom: 20px
+      padding: 10px
+      box-sizing: border-box
+      outline: none
+
+      &:placeholder
+        color: $border-color
+        font-family: $sans
+        font-size: 14px
+      
+      &:active, &:focus
+        border: 2px solid $color-primary
+    
+    button
+      height: 35px
+      text-transform: uppercase
+      background-color: $color-primary
+      color: #fff
+      border-radius: 3px
+      font-family: $sans
+      font-size: 14px
+      font-weight: bold
