@@ -1,0 +1,40 @@
+#client-form
+  +reset
+  position: absolute
+  top: 0
+  left: 0
+  display: none
+
+.client-form
+  +reset
+  background-color: #00000080
+  height: 100vh
+  width: 100vw
+  display: flex
+  justify-content: center
+  align-items: center
+
+  p
+    +reset
+    margin-bottom: 20px
+    font-family: $sans
+    color: $color-active-dark
+
+    &:before
+      content: ''
+      width: 28px
+      transform: translateY(7px)
+      height: 28px
+      display: inline-block
+      margin-right: 10px
+      background-color: $color-primary
+      border-radius: 50%
+
+  .form-container
+    +reset
+    max-width: 500px
+    padding: 20px
+    border-radius: 13px
+    min-width: 500px
+    background-color: $color-nav
+    max-height: 580px
