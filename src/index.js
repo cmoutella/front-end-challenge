@@ -1,3 +1,4 @@
+import './index.sass'
 import Vue from 'vue'
 
 var app = new Vue({
