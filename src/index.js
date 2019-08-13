@@ -1,9 +1,6 @@
 import './index.sass'
-import Vue from 'vue'
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
-  }
-})
+import './services/login'
+import './services/clients'
+import './services/transactions'
+import './js/components'
