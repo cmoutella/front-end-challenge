@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="home">
     <button class="add-client">Clientes</button>
     <ul class="clients-list">
       <li class="clients-client">
@@ -18,5 +18,7 @@
   </div>
 </template>
 <script>
+import "../components/newClientForm";
+
 export default {};
 </script>

@@ -5,5 +5,5 @@ Vue.component('new-client-form', {
 })
 
 var newClientForm = new Vue({
-  el: '#new-client-form'
+  el: '#home'
 })

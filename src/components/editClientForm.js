@@ -5,5 +5,5 @@ Vue.component('edit-client-form', {
 })
 
 var clientEditForm = new Vue({
-  el: '#edit-client-form'
+  el: '#client-details'
 })
