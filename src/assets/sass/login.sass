@@ -1,28 +1,26 @@
-#login
-  +reset
-  position: absolute
-  top: 0
-  left: 0
-  display: none
-
 .login
   +reset
   background-color: $color-primary
   height: 100vh
   width: 100vw
-  padding: 60px
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 3
+  display: flex
+  align-items: center
+  justify-content: center
 
   &-container
-    max-width: 400px
-    margin: 0 auto
-  
+    min-width: 400px
+
   &-title
     +reset
     color: #fff
     font-family: $cursive
     text-align: center
     font-size: 40px
-    margin-bottom: 60px
+    margin-bottom: 100px
 
     &:before
       content: ''
@@ -30,7 +28,7 @@
       width: 230px
       height: 147px
       display: block
-      margin: 0 auto 60px
+      margin: 0 auto 80px
       background-image: url('./images/logo.png')
 
   &-form

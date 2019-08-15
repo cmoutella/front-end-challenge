@@ -1,15 +1,16 @@
-#client-detail
+.client-details
   +reset
   position: absolute
-  top: 53px
+  padding-top: 80px
+  top: 0
   left: 0
-  display: none
+  min-width: 100vw
+  min-height: 100vh
+  z-index: 1
 
 .client-detail
   +reset
   background-color: $color-primary
-  min-height: calc(100vh - 53px)
-  min-width: 100vw
 
   .client-data
     background-color: $color-nav
@@ -18,6 +19,7 @@
     width: 100%
     padding: 10px 20px
     margin-bottom: 20px
+    box-sizing: border-box
   
   .data-main
     display: flex

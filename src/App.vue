@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/login">Login</router-link>
-      <router-link to="/cliente">Cliente</router-link>
-      <router-link to="/cliente/transacoes">Transações</router-link>
+    <nav class="navbar">
+      <a class="logo" href="#">boulder</a>
+      <div class="log">
+        <span class="log-user">John</span>
+        <button class="log-loggout">Logout</button>
+      </div>
     </nav>
     <router-view />
   </div>
