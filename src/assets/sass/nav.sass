@@ -1,0 +1,29 @@
+.navbar
+  +reset
+  min-width: 100vw
+  background-color: #EBEBEB
+  display: flex
+  justify-content: space-between
+  align-content: center
+  padding: 13px 20px
+  margin-bottom: 40px
+  
+  .logo
+    font-family: $cursive
+    text-decoration: none
+    color: $color-primary
+    font-size: 20px
+
+.log
+  font-family: $sans
+
+  &-user, &-loggout
+    margin-right: 10px
+    font-size: 20px
+
+  &-user
+    color: $color-disabled
+
+  &-loggout
+    +reset-button
+    color: $color-active-dark

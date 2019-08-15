@@ -1,0 +1,32 @@
+form
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-content: center
+
+  input, select
+    height: 35px
+    border: 1px solid $border-color
+    border-radius: 3px
+    margin-bottom: 20px
+    padding: 10px
+    box-sizing: border-box
+    outline: none
+
+    &:placeholder
+      color: $border-color
+      font-family: $sans
+      font-size: 14px
+    
+    &:active, &:focus
+      border: 2px solid $color-primary
+
+  button
+    height: 35px
+    text-transform: uppercase
+    background-color: $color-primary
+    color: #fff
+    border-radius: 3px
+    font-family: $sans
+    font-size: 14px
+    font-weight: bold
