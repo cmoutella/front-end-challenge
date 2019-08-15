@@ -1,7 +1,7 @@
-import Login from './components/Login.vue'
-import Home from './components/Home.vue'
-import Client from './components/Client.vue'
-import Transactions from './components/Transactions.vue'
+import Login from './pages/Login.vue'
+import Home from './pages/Home.vue'
+import Client from './pages/Client.vue'
+import Transactions from './pages/Transactions.vue'
 
 
 const routes = [{
