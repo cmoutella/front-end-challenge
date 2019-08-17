@@ -20,7 +20,24 @@
   </div>
 </template>
 <script>
-// import "../components/newClientForm";
+import services from "../services/axios";
+import newClientForm from "../components/newClientForm";
 
-export default {};
+export default {
+  name: "Boulder_clients",
+  components: {
+    newClientForm
+  },
+  data() {
+    return {
+      clients: []
+    };
+  },
+  created() {
+    var self = this;
+    services.getClients(clients => {
+      self.clients = clients.data.data.results;
+    });
+  }
+};
 </script>
