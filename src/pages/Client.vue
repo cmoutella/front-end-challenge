@@ -26,7 +26,26 @@
     </div>
   </div>
 </template>
+
 <script>
-// import "../components/editClientForm";
-export default {};
+import services from "../services/axios";
+import "../components/editClientForm";
+export default {
+  name: "client_details",
+  props: {
+    id: {
+      type: String
+    }
+  },
+  data() {
+    return {
+      client: {}
+    };
+  },
+  created() {
+    services.getClientDetails(this.props.id, client => {
+      this.client = client.data.data.results;
+    });
+  }
+};
 </script>

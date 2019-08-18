@@ -14,6 +14,25 @@
     </div>
   </div>
 </template>
+
 <script>
-export default {};
+import services from "../services/axios";
+export default {
+  name: "client_transactions",
+  props: {
+    id: {
+      type: String
+    }
+  },
+  data() {
+    return {
+      transactions: []
+    };
+  },
+  created() {
+    services.getClientDetails(this.props.id, transactions => {
+      this.transactions = transactions.data.data.results;
+    });
+  }
+};
 </script>

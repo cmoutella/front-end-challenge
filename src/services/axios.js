@@ -4,10 +4,10 @@ const BASE_URL = 'http://localhost:3000/api'
 var requestConfig = {
   method: 'GET',
   headers: {
-    'Origin': 'http://localhost:8080/#/',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE'
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
   },
   json: true
 }
@@ -27,10 +27,13 @@ export default {
     axios.post(url, params)
   },
 
-  getClientDetails: (id) => {
+  getClientDetails: (id, callback) => {
     const url = BASE_URL + '/client/' + id
-    var ClientDetails = axios.get(url, requestConfig)
-    return ClientDetails
+    axios.get(url, requestConfig).then((clients) => {
+      if (callback) {
+        callback(clients)
+      }
+    })
   },
 
   editClientDetails: (id, params) => {
@@ -38,9 +41,12 @@ export default {
     axios.post(url, params)
   },
 
-  getClientTransactions: (id) => {
+  getClientTransactions: (id, callback) => {
     const url = BASE_URL + '/client/' + id + '/transactions'
-    const ClientTransactions = axios.get(url, requestConfig)
-    return ClientTransactions
+    axios.get(url, requestConfig).then((clients) => {
+      if (callback) {
+        callback(clients)
+      }
+    })
   }
 }

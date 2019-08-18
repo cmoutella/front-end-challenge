@@ -34,9 +34,8 @@ export default {
     };
   },
   created() {
-    var self = this;
     services.getClients(clients => {
-      self.clients = clients.data.data.results;
+      this.clients = clients.data.data.results;
     });
   }
 };
