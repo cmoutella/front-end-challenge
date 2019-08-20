@@ -17,20 +17,28 @@
         <span class="log-user">John</span><button class="log-loggout">Logout</button>
       </div>
     </nav>
-    <div class="container">
-      <button class="add-client">Clientes</button>
-      <ul class="clients-list">
-        <template v-for="client in clients">
-          <li class="clients-client">
-            <button>
-              <h1>{{client.name}}</h1>
-              <h3>{{client.status}}</h3>
-            </button>
-          </li>
-        </template>
-      </ul>
+
+    <div id="clients">
+      <div class="clients">
+        <div class="container">
+          <button class="add-client">Clientes</button>
+          <ul class="clients-list">
+            <template v-for="client in clients">
+              <li class="clients-client">
+                <button>
+                  <h1>{{client.name}}</h1>
+                  <h3>{{client.status}}</h3>
+                </button>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
     </div>
+
   </div>
+
+
   <div id="login">
     <login-interface></login-interface>
   </div>
@@ -42,6 +50,9 @@
   </div>
   <div id="client-edit-form">
     <client-edit-form></client-edit-form>
+  </div>
+  <div id="transactions">
+    <transactions></transactions>
   </div>
   <script type="text/javascript" src="./dist/main.js"></script>
 </body>
