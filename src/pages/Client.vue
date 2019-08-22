@@ -24,7 +24,6 @@
         <button class="transactional">Transacional</button>
       </div>
     </div>
-    <edit-client-form />
   </div>
 </template>
 
