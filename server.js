@@ -3,7 +3,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use((res) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8080')
+})
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
@@ -11,12 +16,10 @@ app.get('/', function (req, res) {
         title: 'Desafio Front End',
         version: '1.0.0',
         source: 'https://github.com/RickCardoso/front-end-challenge',
-        authors: [
-            {
-                name: 'Ricardo Cardoso',
-                url: 'https://github.com/RickCardoso'
-            }
-        ]
+        authors: [{
+            name: 'Ricardo Cardoso',
+            url: 'https://github.com/RickCardoso'
+        }]
     });
 });
 
@@ -34,8 +37,7 @@ const users = {
     }
 };
 
-let status = [
-    {
+let status = [{
         id: 1,
         description: 'Aprovado'
     },
@@ -53,8 +55,7 @@ let status = [
     }
 ]
 
-let clients = [
-    {
+let clients = [{
         id: 1,
         name: 'Loja da Manu',
         address: 'Av. Ataulfo de Paiva 123',
@@ -65,12 +66,10 @@ let clients = [
             type: 1,
             number: '12.345.678/0001-00'
         },
-        partners: [
-            {
-                name: 'Manu',
-                document: '123.456.789-10'
-            }
-        ]
+        partners: [{
+            name: 'Manu',
+            document: '123.456.789-10'
+        }]
     },
     {
         id: 2,
@@ -83,12 +82,10 @@ let clients = [
             type: 1,
             number: '23.456.789/0001-21'
         },
-        partners: [
-            {
-                name: 'José',
-                document: '234.567.891-01'
-            }
-        ]
+        partners: [{
+            name: 'José',
+            document: '234.567.891-01'
+        }]
     },
     {
         id: 3,
@@ -101,8 +98,7 @@ let clients = [
             type: 1,
             number: '34.567.890/0001-41'
         },
-        partners: [
-            {
+        partners: [{
                 name: 'Carla Silva',
                 document: '345.678.901-23'
             },
@@ -123,17 +119,14 @@ let clients = [
             type: 1,
             number: '45.678.901/0001-31'
         },
-        partners: [
-            {
-                name: 'Zelda',
-                document: '567.890.123-45'
-            }
-        ]
+        partners: [{
+            name: 'Zelda',
+            document: '567.890.123-45'
+        }]
     }
 ];
 
-const transactionStatus = [
-    {
+const transactionStatus = [{
         id: 1,
         description: 'Autorizado'
     },
@@ -147,8 +140,7 @@ const transactionStatus = [
     }
 ];
 
-let brands = [
-    {
+let brands = [{
         id: 1,
         name: 'Mastercard'
     },
@@ -166,8 +158,7 @@ let brands = [
     }
 ];
 
-let transactionalData = [
-    {
+let transactionalData = [{
         id: 1,
         clientId: 4,
         amount: 599.12,
@@ -622,7 +613,7 @@ let transactionalData = [
 app.post('/api/user/login', function (req, res) {
     const payload = req.body;
 
-    if(auth[payload.email] && auth[payload.email] === payload.password) {
+    if (auth[payload.email] && auth[payload.email] === payload.password) {
         res.status(200).json(users[payload.email]);
     } else {
         res.sendStatus(401);
@@ -630,7 +621,9 @@ app.post('/api/user/login', function (req, res) {
 });
 
 app.get('/api/status/', function (req, res) {
-    res.json({ status });
+    res.json({
+        status
+    });
 });
 
 app.get('/api/clients/', function (req, res) {
@@ -641,18 +634,24 @@ app.get('/api/clients/', function (req, res) {
             status: client.status
         }
     })
-    res.json({ clients: mappedClients });
+    res.json({
+        clients: mappedClients
+    });
 });
 
 app.get('/api/client/:id', function (req, res) {
     let client = clients.find((client) => client.id.toString() === req.params.id.toString());
-    res.json({ client });
+    res.json({
+        client
+    });
 });
 
 app.patch('/api/client/:id', (req, res) => {
     let index = clients.findIndex((client) => client.id.toString() === req.params.id.toString());
     Object.assign(clients[index], req.body);
-    res.status(200).json({ status: 'success' });
+    res.status(200).json({
+        status: 'success'
+    });
 });
 
 app.post('/api/client/', (req, res) => {
@@ -664,8 +663,10 @@ app.post('/api/client/', (req, res) => {
     clients.push(Object.assign({
         id: topId + 1
     }, req.body));
-    
-    res.status(200).json({ status: 'success' });
+
+    res.status(200).json({
+        status: 'success'
+    });
 });
 
 app.get('/api/client/:id/transactions', (req, res) => {
@@ -673,7 +674,7 @@ app.get('/api/client/:id/transactions', (req, res) => {
 
     res.json(transactions.map(transaction => {
         const clientName = clients.find(client => client.id === transaction.clientId).name;
-        
+
         return Object.assign(transaction, {
             clientName
         });
