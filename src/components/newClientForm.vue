@@ -25,7 +25,7 @@
 import services from "../services/axios";
 
 export default {
-  name: "create_client_form",
+  name: "new-client-form",
   data() {
     return {
       input: {

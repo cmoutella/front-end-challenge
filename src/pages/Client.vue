@@ -24,6 +24,7 @@
         <button class="transactional">Transacional</button>
       </div>
     </div>
+    <edit-client-form />
   </div>
 </template>
 
@@ -46,6 +47,11 @@ export default {
     services.getClientDetails(this.props.id, client => {
       this.client = client.data.data.results;
     });
+  },
+  methods: {
+    editClient(e) {
+      e.target.style.display = "initial";
+    }
   }
 };
 </script>

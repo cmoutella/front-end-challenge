@@ -17,6 +17,7 @@
         </li>
       </ul>
     </div>
+    <new-client-form />
   </div>
 </template>
 <script>
@@ -32,6 +33,11 @@ export default {
     return {
       clients: []
     };
+  },
+  methods: {
+    addClient(e) {
+      e.target.style.display = "initial";
+    }
   },
   created() {
     services.getClients(clients => {
