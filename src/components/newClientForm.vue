@@ -3,18 +3,18 @@
     <div class="form-container">
       <p>Criar Cliente</p>
       <form>
-        <input type="text" name="nome" placeholder="Nome Fantasia" required />
-        <select name="doc_type">
+        <input type="text" name="name" placeholder="Nome Fantasia" required />
+        <select name="docType">
           <option selected disabled>Tipo de Documento</option>
         </select>
-        <input type="text" name="documento" placeholder="Documento" />
-        <input type="text" name="bairro" placeholder="Bairro" />
-        <input type="text" name="cidade" placeholder="Cidade" />
+        <input type="text" name="doc" placeholder="Documento" />
+        <input type="text" name="neighborhood" placeholder="Bairro" />
+        <input type="text" name="city" placeholder="Cidade" />
         <select name="status">
           <option selected disabled>Status</option>
         </select>
-        <input type="text" name="nome_socio" placeholder="Nome do Sócio" />
-        <input type="text" name="doc_socio" placeholder="Documento do sócio" />
+        <input type="text" name="partnerName" placeholder="Nome do Sócio" />
+        <input type="text" name="partnerDoc" placeholder="Documento do sócio" />
         <button type="submit">Salvar</button>
       </form>
     </div>
@@ -25,6 +25,33 @@
 import services from "../services/axios";
 
 export default {
-  name: "create_client_form"
+  name: "create_client_form",
+  data() {
+    return {
+      input: {
+        name: "",
+        docType: "",
+        doc: "",
+        neighborhood: "",
+        city: "",
+        partnerName: "",
+        partnerDoc: ""
+      }
+    };
+  },
+  methods: {
+    update() {
+      var params = {
+        name: this.input.name,
+        docType: this.input.docType,
+        doc: this.input.doc,
+        neighborhood: this.input.neighborhood,
+        city: this.input.city,
+        partnerName: this.input.partnerName,
+        partnerDoc: this.input.partnerDoc
+      };
+      services.createNewClient(this.pros.id, params);
+    }
+  }
 };
 </script>
