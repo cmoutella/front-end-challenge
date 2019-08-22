@@ -7,18 +7,16 @@ var requestConfig = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Credentials': 'true',
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'Accept': 'text/html,application/json,application/xml;'
   },
   json: true
 }
 
 export default {
-  getClients: (callback) => {
+  getClients: () => {
     const url = BASE_URL + '/clients'
-    axios.get(url, requestConfig).then((clients) => {
-      if (callback) {
-        callback(clients)
-      }
+    axios.get(url, requestConfig).then(res => {
+      return res.json()
     })
   },
 
@@ -27,12 +25,10 @@ export default {
     axios.post(url, params)
   },
 
-  getClientDetails: (id, callback) => {
+  getClientDetails: (id) => {
     const url = BASE_URL + '/client/' + id
-    axios.get(url, requestConfig).then((clients) => {
-      if (callback) {
-        callback(clients)
-      }
+    axios.get(url, requestConfig).then((res) => {
+      return res.json()
     })
   },
 
@@ -41,12 +37,15 @@ export default {
     axios.post(url, params)
   },
 
-  getClientTransactions: (id, callback) => {
+  getClientTransactions: (id) => {
     const url = BASE_URL + '/client/' + id + '/transactions'
-    axios.get(url, requestConfig).then((clients) => {
-      if (callback) {
-        callback(clients)
-      }
+    axios.get(url, requestConfig).then((res) => {
+      return res.json()
     })
+  },
+
+  signIn: (params) => {
+    const url = BASE_URL + '/user/login'
+    axios.post(url, params)
   }
 }
