@@ -1,13 +1,12 @@
 import axios from 'axios'
 
 const BASE_URL = 'http://localhost:3000/api'
+const userToken = localStorage.getItem('token')
+const Auth = 'Bearer'.concat(userToken)
 var requestConfig = {
   method: 'GET',
   headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE',
-    'Accept': 'text/html,application/json,application/xml;'
+    'Authorization': Auth
   },
   json: true
 }
@@ -46,6 +45,10 @@ export default {
 
   signIn: (params) => {
     const url = BASE_URL + '/user/login'
-    axios.post(url, params)
+    axios.post(url, params).then((res) => {
+      if (res.status == '200') {
+        localStorage.setItem('user')
+      }
+    })
   }
 }
