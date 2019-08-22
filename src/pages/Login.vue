@@ -7,12 +7,33 @@
         <form>
           <input type="email" name="email" placeholder="Email" />
           <input type="password" name="password" placeholder="Password" />
-          <button type="submit">entrar</button>
+          <button type="submit" v-on:click="login()">entrar</button>
         </form>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+import services from "../services/axios";
+
+export default {
+  name: "Login",
+  data() {
+    return {
+      input: {
+        email: "",
+        password: ""
+      }
+    };
+  },
+  methods: {
+    login() {
+      var login_data = {
+        email: this.input.email,
+        password: this.input.password
+      };
+      services.signIn(login_data);
+    }
+  }
+};
 </script>
