@@ -7,7 +7,7 @@
         <form>
           <input type="email" name="email" placeholder="Email" />
           <input type="password" name="password" placeholder="Password" />
-          <button type="submit" v-on:click="login()">entrar</button>
+          <button type="submit" v-on:click="login">entrar</button>
         </form>
       </div>
     </div>
@@ -27,7 +27,8 @@ export default {
     };
   },
   methods: {
-    login() {
+    login: function(e) {
+      e.preventDefault();
       var login_data = {
         email: this.input.email,
         password: this.input.password
